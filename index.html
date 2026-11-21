@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sense of Humor Questionnaire (SHQ-6)</title>
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-hover: #1d4ed8;
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --text: #0f172a;
+      --muted: #64748b;
+      --border: #e2e8f0;
+    }
+
+    * {
+      box-sizing: border-box;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      margin: 0;
+      padding: 2rem 1rem;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      background: var(--card);
+      padding: 2.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+      border: 1px solid var(--border);
+    }
+
+    h1 {
+      margin-top: 0;
+      font-size: 1.75rem;
+      color: var(--text);
+    }
+
+    p.subtitle {
+      color: var(--muted);
+      margin-bottom: 2rem;
+    }
+
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 0.5rem;
+      margin: 2rem 0 1.25rem;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+
+    @media (max-width: 600px) {
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+      .container {
+        padding: 1.5rem;
+      }
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label.field-label {
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+      font-size: 0.95rem;
+    }
+
+    input[type="number"],
+    select {
+      padding: 0.65rem 0.75rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 1rem;
+      background: #fff;
+    }
+
+    .question-block {
+      margin-bottom: 1.75rem;
+      padding: 1.25rem;
+      background: #f8fafc;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+
+    .question-text {
+      font-weight: 600;
+      margin-bottom: 0.85rem;
+    }
+
+    .options {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .option-label {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      cursor: pointer;
+      padding: 0.4rem 0.6rem;
+      border-radius: 6px;
+      transition: background 0.15s;
+    }
+
+    .option-label:hover {
+      background: #e2e8f0;
+    }
+
+    button[type="submit"] {
+      width: 100%;
+      padding: 0.9rem;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #fff;
+      background: var(--primary);
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 1rem;
+      transition: background 0.2s;
+    }
+
+    button[type="submit"]:hover {
+      background: var(--primary-hover);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Sense of Humor Questionnaire (SHQ-6)</h1>
+    <p class="subtitle">Please enter your information and answer all six questions below.</p>
+
+    <form id="shqForm">
+      <div class="section-title">Part 1: Background Information</div>
+      <div class="form-grid">
+        <div class="field">
+          <label class="field-label" for="gender">Gender</label>
+          <select id="gender" name="gender" required>
+            <option value="" disabled selected>Select gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="age">Age</label>
+          <input type="number" id="age" name="age" min="10" max="120" placeholder="e.g., 28" required />
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="education">Highest Education Level</label>
+          <select id="education" name="education" required>
+            <option value="" disabled selected>Select education level</option>
+            <option value="High School or Less">High School or Less</option>
+            <option value="Associate / Diploma">Associate / Diploma</option>
+            <option value="Bachelor's Degree">Bachelor's Degree</option>
+            <option value="Master's Degree">Master's Degree</option>
+            <option value="Doctorate (PhD / EdD / MD)">Doctorate (PhD / EdD / MD)</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="languages">Number of Languages Spoken</label>
+          <input type="number" id="languages" name="languages" min="1" max="20" placeholder="e.g., 2" required />
+        </div>
+      </div>
+
+      <div class="section-title">Part 2: Questionnaire</div>
+
+      <div class="question-block">
+        <div class="question-text">1) Do you easily recognize, as a sign of humor, an allusion or a slight change of emphasis?</div>
+        <div class="options">
+          <label class="option-label"><input type="radio" name="q1" value="4" required /> Very easily</label>
+          <label class="option-label"><input type="radio" name="q1" value="3" /> Quite easily</label>
+          <label class="option-label"><input type="radio" name="q1" value="2" /> Hardly enough</label>
+          <label class="option-label"><input type="radio" name="q1" value="1" /> Very hard</label>
+        </div>
+      </div>
+
+      <div class="question-block">
+        <div class="question-text">2) Would it be easy for you to find something comical, witty or humorous in most situations?</div>
+        <div class="options">
+          <label class="option-label"><input type="radio" name="q2" value="4" required /> Very easily</label>
+          <label class="option-label"><input type="radio" name="q2" value="3" /> Quite easily</label>
+          <label class="option-label"><input type="radio" name="q2" value="2" /> Hardly enough</label>
+          <label class="option-label"><input type="radio" name="q2" value="1" /> Very hard</label>
+        </div>
+      </div>
+
+      <div class="question-block">
+        <div class="question-text">3) People who try to be funny are very irresponsible and should not be taken into account.</div>
+        <div class="options">
+          <label class="option-label"><input type="radio" name="q3" value="4" required /> For nothing</label>
+          <label class="option-label"><input type="radio" name="q3" value="3" /> To a certain extent</label>
+          <label class="option-label"><input type="radio" name="q3" value="2" /> In large part</label>
+          <label class="option-label"><input type="radio" name="q3" value="1" /> It is true</label>
+        </div>
+      </div>
+
+      <div class="question-block">
+        <div class="question-text">4) People who make humor irritate me because they clearly want others to laugh.</div>
+        <div class="options">
+          <label class="option-label"><input type="radio" name="q4" value="4" required /> It is not true</label>
+          <label class="option-label"><input type="radio" name="q4" value="3" /> In part true</label>
+          <label class="option-label"><input type="radio" name="q4" value="2" /> Quite true</label>
+          <label class="option-label"><input type="radio" name="q4" value="1" /> Yes indeed</label>
+        </div>
+      </div>
+
+      <div class="question-block">
+        <div class="question-text">5) Would you say that you have a lot of fun reasons during a normal day?</div>
+        <div class="options">
+          <label class="option-label"><input type="radio" name="q5" value="4" required /> Very much</label>
+          <label class="option-label"><input type="radio" name="q5" value="3" /> Enough</label>
+          <label class="option-label"><input type="radio" name="q5" value="2" /> A little</label>
+          <label class="option-label"><input type="radio" name="q5" value="1" /> For nothing</label>
+        </div>
+      </div>
+
+      <div class="question-block">
+        <div class="question-text">6) It’s my impression that those who try to be funny do it to hide their lack of self-confidence.</div>
+        <div class="options">
+          <label class="option-label"><input type="radio" name="q6" value="4" required /> It is not true</label>
+          <label class="option-label"><input type="radio" name="q6" value="3" /> A little true</label>
+          <label class="option-label"><input type="radio" name="q6" value="2" /> Quite true</label>
+          <label class="option-label"><input type="radio" name="q6" value="1" /> Yes indeed</label>
+        </div>
+      </div>
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <script>
+    const SCRIPT_URL = "YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL";
+
+    function getHumorLevel(score) {
+      if (score <= 6) {
+        return {
+          label: "Very Low Humor",
+          desc: "Scores between 0 and 6 indicate a very low sensitivity or inclination toward humor."
+        };
+      }
+      if (score <= 12) {
+        return {
+          label: "Low Humor",
+          desc: "Scores between 7 and 12 indicate a relatively low appreciation or use of humor in daily situations."
+        };
+      }
+      if (score <= 18) {
+        return {
+          label: "High Humor",
+          desc: "Scores between 13 and 18 indicate a strong ability to recognize and appreciate humor."
+        };
+      }
+      return {
+        label: "Very High Humor",
+        desc: "Scores between 19 and 24 indicate a very high sensitivity to humor and a playful outlook."
+      };
+    }
+
+    function openResultWindow(score, resultObj) {
+      const resultWin = window.open("", "_blank", "width=550,height=480");
+      if (!resultWin) {
+        alert(`Your SHQ-6 Score is ${score}/24 (${resultObj.label}).`);
+        return;
+      }
+
+      resultWin.document.write(`
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8" />
+          <title>Your SHQ-6 Result</title>
+          <style>
+            body {
+              font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+              background: #f8fafc;
+              color: #0f172a;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              height: 100vh;
+              margin: 0;
+              padding: 1.5rem;
+              text-align: center;
+            }
+            .card {
+              background: #fff;
+              padding: 2.5rem;
+              border-radius: 12px;
+              box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+              max-width: 440px;
+              width: 100%;
+              border: 1px solid #e2e8f0;
+            }
+            .score-badge {
+              font-size: 3rem;
+              font-weight: 800;
+              color: #2563eb;
+              margin: 0.5rem 0;
+            }
+            .level {
+              font-size: 1.5rem;
+              font-weight: 700;
+              margin-bottom: 1rem;
+            }
+            .desc {
+              color: #475569;
+              line-height: 1.5;
+              margin-bottom: 1.5rem;
+            }
+            button {
+              padding: 0.65rem 1.5rem;
+              background: #0f172a;
+              color: #fff;
+              border: none;
+              border-radius: 8px;
+              font-size: 0.95rem;
+              cursor: pointer;
+            }
+          </style>
+        </head>
+        <body>
+          <div class="card">
+            <div>Your Sense of Humor Score</div>
+            <div class="score-badge">${score} / 24</div>
+            <div class="level">${resultObj.label}</div>
+            <p class="desc">${resultObj.desc}</p>
+            <button onclick="window.close()">Close Window</button>
+          </div>
+        </body>
+        </html>
+      `);
+      resultWin.document.close();
+    }
+
+    document.getElementById("shqForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const formData = new FormData(e.target);
+      const q1 = Number(formData.get("q1"));
+      const q2 = Number(formData.get("q2"));
+      const q3 = Number(formData.get("q3"));
+      const q4 = Number(formData.get("q4"));
+      const q5 = Number(formData.get("q5"));
+      const q6 = Number(formData.get("q6"));
+
+      const totalScore = q1 + q2 + q3 + q4 + q5 + q6;
+      const resultObj = getHumorLevel(totalScore);
+
+      const payload = {
+        gender: formData.get("gender"),
+        age: formData.get("age"),
+        education: formData.get("education"),
+        languages: formData.get("languages"),
+        q1, q2, q3, q4, q5, q6,
+        score: totalScore,
+        level: resultObj.label
+      };
+
+      // Silently send data in the background
+      if (SCRIPT_URL && SCRIPT_URL !== "https://script.google.com/macros/s/AKfycbxHhZlZPtWwc0UHMCMfZsi-GHCHdekZQWW-nEBSesRYIXC4cuCijrdDdJZDYwN1JxLs/exec") {
+        fetch(SCRIPT_URL, {
+          method: "POST",
+          mode: "no-cors",
+          keepalive: true,
+          headers: { "Content-Type": "text/plain" },
+          body: JSON.stringify(payload)
+        }).catch(() => {});
+      }
+
+      // Immediately open the score window and reset the form
+      openResultWindow(totalScore, resultObj);
+      e.target.reset();
+    });
+  </script>
+</body>
+</html>
